@@ -1,0 +1,212 @@
+.cart-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, #fff, #f0f0f0);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #555;
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #007bff;
+  }
+  
+  .cart-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cart-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+  }
+  
+  .cart-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-controls button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .quantity-controls button:hover {
+    background-color: #0056b3;
+  }
+  
+  .quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 1em;
+  }
+  
+  .remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 1.5em;
+  }
+  
+  .coupon-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .coupon-input {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .apply-button, .order-button, .close-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .apply-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .apply-button:hover {
+    background-color: #218838;
+  }
+  
+  .available-coupons {
+    margin-left: 10px; /* Moved a little to the left */
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%;
+  }
+  
+  .available-coupons h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .available-coupons ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .available-coupons li {
+    background-color: #ffffff;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .available-coupons li:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+  }
+  
+  .available-coupons li:nth-child(1) {
+    background-color: #ffc107; /* Yellow */
+  }
+  
+  .available-coupons li:nth-child(2) {
+    background-color: #17a2b8; /* Cyan */
+  }
+  
+  .available-coupons li:nth-child(3) {
+    background-color: #28a745; /* Green */
+  }
+  
+  .available-coupons li:nth-child(4) {
+    background-color: #fd7e14; /* Orange */
+  }
+  
+  .available-coupons li:nth-child(5) {
+    background-color: #6f42c1; /* Purple */
+  }
+  
+  .coupon-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .order-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    display: block;
+    margin: 10px auto; /* Moved closer to center */
+    width: 100%; /* Full width */
+  }
+  
+  .order-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .order-confirmation-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .close-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+  }
+  
+  .close-button:hover {
+    background-color: #c82333;
+  }
+  

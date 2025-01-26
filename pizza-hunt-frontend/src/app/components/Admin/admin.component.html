@@ -1,0 +1,59 @@
+<div class="admin-container">
+    <h1>Add a New Pizza</h1>
+    <div class="card-container">
+        <div class="add-pizza-card">
+            <form [formGroup]="pizzaForm" (ngSubmit)="onAddPizza()">
+                <div class="form-group">
+                    <label for="name">Pizza Name:</label>
+                    <input id="name" type="text" formControlName="name" required>
+                    <div *ngIf="pizzaForm.controls['name'].invalid && pizzaForm.controls['name'].touched" class="error">
+                        Pizza name is required.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Pizza Type:</label>
+                    <input id="type" type="text" formControlName="type" required>
+                    <div *ngIf="pizzaForm.controls['type'].invalid && pizzaForm.controls['type'].touched" class="error">
+                        Pizza type is required.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" formControlName="description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input id="price" type="number" formControlName="price" required>
+                    <div *ngIf="pizzaForm.controls['price'].invalid && pizzaForm.controls['price'].touched" class="error">
+                        Price is required and must be a number.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUrl">Image URL:</label>
+                    <input id="imageUrl" type="text" formControlName="imageUrl">
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" [disabled]="pizzaForm.invalid">Add Pizza</button>
+                    <button type="button" (click)="onUpdatePizza()" [disabled]="!pizzaForm.value.id">Update Pizza</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="fetch-delete-card">
+            <h2>Delete or Fetch a Pizza</h2>
+            <div class="form-group">
+                <label for="pizzaId">Pizza ID:</label>
+                <input id="pizzaId" type="text" #pizzaIdInput required>
+            </div>
+            <div class="button-group">
+                <button (click)="onDeletePizza(pizzaIdInput.value)">Delete Pizza</button>
+                <button (click)="onFetchPizza(pizzaIdInput.value)">Fetch Pizza</button>
+            </div>
+        </div>
+    </div>
+</div>

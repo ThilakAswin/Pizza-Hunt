@@ -1,0 +1,28 @@
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="name">Name:</label>
+      <input id="name" type="text" placeholder="Enter your name" [(ngModel)]="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input id="email" type="email" placeholder="Enter your email" [(ngModel)]="email" name="email" required>
+
+      <label for="birthdate">Birthdate:</label>
+      <input id="birthdate" type="date" [(ngModel)]="birthdate" name="birthdate" required>
+
+      <label for="mobile">Mobile Number:</label>
+      <input id="mobile" type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" name="mobileNumber" required>
+
+      <label for="currentPlace">Current Place:</label>
+      <input id="currentPlace" type="text" placeholder="Enter your current place" [(ngModel)]="currentPlace" name="currentPlace" required>
+
+      <label for="address">Address:</label>
+      <input id="address" type="text" placeholder="Enter your address" [(ngModel)]="address" name="address" required>
+
+      <label for="password">Password:</label>
+      <input id="password" type="password" placeholder="Enter your password" [(ngModel)]="password" name="password" required>
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a (click)="navigateToLogin()">Login here</a></p>
+  </div>

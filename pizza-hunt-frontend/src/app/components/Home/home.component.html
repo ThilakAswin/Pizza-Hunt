@@ -1,0 +1,35 @@
+<div class="home-container">
+    <h1 class="welcome-title">Welcome to Pizza Hunt!</h1>
+    <p class="greeting" *ngIf="userName">Hello, {{ userName }}! Order your favorite pizza now!</p>
+  
+    <!-- Filter Inputs -->
+    <div class="filter-container">
+      <input type="text" placeholder="Filter by Name" #nameInput />
+      <select #typeInput>
+        <option value="">Select Type</option>
+        <option value="Veg">Veg</option>
+        <option value="Non-Veg">Non-Veg</option>
+      </select>
+      <input type="number" placeholder="Max Price" #priceInput />
+      <button (click)="applyFilters(nameInput.value, typeInput.value, priceInput.value)">Filter</button>
+      <button (click)="clearFilters(nameInput, typeInput, priceInput)">Clear Filters</button>
+    </div>
+  
+    <div *ngIf="filteredPizzas.length > 0; else noPizzas" class="pizza-grid">
+      <div class="pizza-card" *ngFor="let pizza of filteredPizzas">
+        <img [src]="pizza.imageUrl" class="pizza-image" alt="{{ pizza.name }}">
+        <div class="pizza-details">
+          <h5 class="pizza-title">{{ pizza.name }}</h5>
+          <p class="pizza-type">Type: {{ pizza.type }}</p>
+          <p class="pizza-price">Price: {{ pizza.price | currency: 'INR':'symbol':'1.0-0' }}</p>
+          <p class="pizza-description">{{ pizza.description }}</p>
+        </div>
+        <button class="buy-button" (click)="buyPizza(pizza)">Add To Cart</button>
+      </div>
+    </div>
+  
+    <ng-template #noPizzas>
+      <p>No pizzas available at the moment.</p>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,66 @@
+<div class="cart-container">
+    <h1>Shopping Cart</h1>
+    <div *ngIf="isLoading" class="loading">Loading cart items...</div>
+  
+    <div *ngIf="!isLoading && cartItems && cartItems.length > 0; else noItems">
+      <h2>Your Cart Items:</h2>
+      <ul class="cart-items">
+        <li *ngFor="let item of cartItems" class="cart-item">
+          <strong>{{ item.pizza.name }}</strong> - 
+          Price: {{ item.pizza.price | currency:'INR':'symbol' }} - 
+          Quantity: 
+          <div class="quantity-controls">
+            <button (click)="decrementQuantity(item)">-</button>
+            <input 
+              type="number" 
+              [value]="item.quantity" 
+              (change)="updateQuantity(item, $event)" 
+              min="0" 
+              class="quantity-input"
+            />
+            <button (click)="incrementQuantity(item)">+</button>
+          </div>
+          - Total: {{ getTotalPrice(item) | currency:'INR':'symbol' }}
+          <button (click)="removePizzaFromCart(item)" class="remove-button">🗑️</button>
+        </li>
+      </ul>
+      <h3>Total Price: {{ getTotalCartPrice() | currency:'INR':'symbol' }}</h3>
+  
+      <div class="coupon-container">
+        <input 
+          type="text" 
+          placeholder="Enter coupon code" 
+          [value]="couponCode" 
+          (input)="onCouponCodeInput($event)" 
+          class="coupon-input"
+        />
+        <button (click)="applyCoupon()" class="apply-button">Apply Coupon</button>
+      
+        <div class="available-coupons">
+          <h3>Available Coupons:</h3>
+          <ul>
+            <li *ngFor="let coupon of availableCoupons" (click)="selectCoupon(coupon)">{{ coupon }}</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div *ngIf="couponError" class="coupon-error">{{ couponError }}</div>
+  
+      <h3 *ngIf="discount > 0">Discount Applied: -{{ discount | currency:'INR':'symbol' }}</h3>
+      <h3 *ngIf="discount > 0">Final Price: {{ getFinalCartPrice() | currency:'INR':'symbol' }}</h3>
+  
+      <button (click)="placeOrder()" class="order-button">Place Order</button>
+    </div>
+  
+    <ng-template #noItems>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  
+    <div *ngIf="isOrderConfirmed" class="order-confirmation-popup">
+      <p>Your order is confirmed!</p>
+      <p>Order ID: {{ orderId }}</p>
+      <p>Delivering to: {{ customerAddress }}</p>
+      <button (click)="closeOrderConfirmation()" class="close-button">Close</button>
+    </div>
+  </div>
+  
