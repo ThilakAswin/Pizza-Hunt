@@ -41,6 +41,7 @@ The frontend will be accessible at http://localhost:4200.
 ![image](https://github.com/user-attachments/assets/9715d109-367b-479c-9f84-a98832c5ae84)
 ![image](https://github.com/user-attachments/assets/1eb32f5a-c169-4c9f-85ff-a7841f15d5dd)
 ![image](https://github.com/user-attachments/assets/e9d253b1-6457-4710-9f1c-3aadd9f01c1e)
+![image](https://github.com/user-attachments/assets/06ef7dd9-e6f3-4bac-aee9-3c07cdd969b3)
 
 
 
